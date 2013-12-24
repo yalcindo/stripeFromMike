@@ -1,0 +1,28 @@
+extends layout
+
+block content
+	.container              
+		br
+		a(href="/") Back home
+		br
+		br
+		
+		p Pick your seat :
+			form#seat-form
+
+				label(for="date") Date :
+				input(type="date",name="date")
+				br
+				label(for="seat") Seat :
+				select#seat(name="seat")
+					option(value='', selected='selected') Your Seat
+					option(value="1") 1A
+					option(value="2") 2A
+					option(value="3") 3A
+					option(value="4") 4A
+					option(value="5") 5A
+					option(value="6") 6A
+				br
+				br
+				button.btn.btn-primary.btn-submit(type='submit') Submit
+		

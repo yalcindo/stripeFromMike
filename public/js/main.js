@@ -6,12 +6,24 @@ $(document).ready(function() {
   $('#payment-form').submit(function(event) {
     $("#charge-error").hide()
     var $form = $(this);
+
     // Disable the submit button to prevent repeated clicks
     $form.find('button').prop('disabled', true);
     Stripe.card.createToken($form, stripeResponseHandler);
     // Prevent the form from submitting with the default action
     return false;
   });
+  // $("#datepicker").datepicker('getDate');
+  $('#seat-form').submit(function(e) {
+    var data=$(this).serialize();
+    $.get("/ticket",data,function(data){
+      console.log(data);
+    });
+   
+    return false;
+  });
+
+
 });
 
 function stripeResponseHandler(status, response) {
@@ -30,3 +42,4 @@ function stripeResponseHandler(status, response) {
     form$.get(0).submit();
   }
 }
+

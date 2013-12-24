@@ -100,6 +100,7 @@ app.post('/login',
     res.redirect('/admin');
   }
 );
+app.get('/ticket', routes.ticket);
 
 // authenticated
 function ensureAuthenticated(req, res, next) {

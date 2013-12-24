@@ -37,3 +37,7 @@ exports.admin = function(req, res){
     }
   });
 };
+exports.ticket = function(req, res){
+  var data=req.body;
+  res.render('ticket', { data:data});
+};
