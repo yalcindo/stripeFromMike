@@ -101,6 +101,7 @@ app.post('/login',
   }
 );
 app.get('/ticket', routes.ticket);
+app.get('/buyticket',routes.buyticket);
 
 // authenticated
 function ensureAuthenticated(req, res, next) {
