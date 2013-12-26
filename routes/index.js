@@ -1,6 +1,6 @@
 var path = require("path");
 var Customer = require('../models/customer.js');
-var Customer = require('../models/ticket.js');
+var Ticket = require('../models/ticket.js');
 var _ = require("underscore")
 
 exports.index = function(req, res){
@@ -26,14 +26,15 @@ exports.logout = function(req, res){
 exports.buyticket=function(req,res){
  var seat=req.query.seat;
  var date=req.query.date;
-//  var ticket=new Ticket({
-//     seat:seat,
-//     date:date,
-//     costumer:new Costumer()
-//   });
-// ticket.save();
-
  res.send({seat:seat,date:date});
+ var ticket=new Ticket({
+    seat:seat,
+    date:date,
+    customer:new Customer()
+  });
+ticket.save();
+
+ 
 };
 
 exports.admin = function(req, res){
